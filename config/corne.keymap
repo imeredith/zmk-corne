@@ -8,8 +8,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-/ 
-{
+/ {
     behaviors {
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
         // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
@@ -21,9 +20,6 @@
             tapping-term-ms = <200>;
             bindings = <&mo 0>, <&to 0>;
         };
-
-
-
 
         comma_semi: comma_semi {
             compatible = "zmk,behavior-mod-morph";
@@ -42,11 +38,10 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
     };
 
-  
-{
+    {
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -58,10 +53,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none       &kp Q  &kp W  &kp F  &kp P  &kp B                                                                                             &kp J  &kp L  &kp U        &kp Y       &key_repeat       &none
-&none       &kp A  &kp R  &kp S  &kp T  &kp G                                                                                             &kp M  &kp N  &kp E        &kp I       &kp O             &none
-&none       &kp Z  &kp X  &kp C  &kp D  &kp V     &kp K  &kp H  &comma_semi  &dot_colon  &kp SINGLE_QUOTE  &none
-                        &mo 2         &kp LEFT_SHIFT  &kp LS(LA(LC(LGUI)))    &kp LS(LA(LCTRL))  &kp SPACE  &mo 1 
+&none  &kp Q  &kp W  &kp F  &kp P           &kp B                   &kp J              &kp L      &kp U        &kp Y       &key_repeat       &none
+&none  &kp A  &kp R  &kp S  &kp T           &kp G                   &kp M              &kp N      &kp E        &kp I       &kp O             &none
+&none  &kp Z  &kp X  &kp C  &kp D           &kp V                   &kp K              &kp H      &comma_semi  &dot_colon  &kp SINGLE_QUOTE  &none
+                     &mo 2  &kp LEFT_SHIFT  &kp LS(LA(LC(LGUI)))    &kp LS(LA(LCTRL))  &kp SPACE  &mo 1
             >;
         };
 
@@ -75,7 +70,7 @@
             bindings = <
 &kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&kp LSHFT   &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans    &trans     &trans  &trans
+&kp LSHFT   &kp B         &trans        &trans        &trans        &trans          &trans    &trans    &trans    &trans     &trans  &trans
                                         &kp LGUI      &trans        &kp SPACE       &kp RET   &trans    &kp RALT
             >;
         };
